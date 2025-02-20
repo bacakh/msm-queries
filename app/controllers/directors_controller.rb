@@ -11,7 +11,6 @@ def show
 end
 
 def youngest
-  the_id1 = params.fetch("the_id")
   @the_youngest = Director.order(dob: :desc).first
     render({ :template => "director_templates/youngest" })
 end
