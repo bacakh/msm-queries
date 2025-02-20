@@ -11,13 +11,12 @@ def show
 end
 
 def youngest
-  @the_youngest = Director.order(dob: :desc).first
+  @the_youngest_director= Director.where.not({ :dob => nil }).order({ :dob => :desc}).first
     render({ :template => "director_templates/youngest" })
 end
 
 def oldest
-  the_id = params.fetch("the_id")
-  @the_oldest = Director.order(dob: :asc).first
+  @the_oldest_director= Director.where.not({ :dob => nil }).order({ :dob => :asc}).first
     render({ :template => "director_templates/oldest" })
 end
 
